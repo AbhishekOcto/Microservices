@@ -1,0 +1,44 @@
+#/*YAML is a human readable data serialization standard that can be used in conjunction with all programming
+#  languages and is often used to write configuration files*/
+server:
+  port : 8084
+spring:
+  application:
+    name : student-service
+
+  profiles:
+    active : dev
+
+  jpa:
+    hibernate:
+      ddl-auto : update
+
+  datasource:
+    url : jdbc:mysql://localhost:3306/db_student?createDatabaseIfNotExist=true
+    driver-class-name : com.mysql.cj.jdbc.Driver
+    username : root
+    password : Abhis@123654
+
+environment: COMMON
+#this needs to be added after eureka registry service creation
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+
+#
+#  datasource:
+#    url : ${datasource.url}
+#    username : ${datasource.username}
+#    password : ${datasource.password}
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: ${datasource.dialect}
+#        connection:
+#          characterEncoding: UTF-8
+#          CharSet: UTF-8
+#          useUnicode: true
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: none
